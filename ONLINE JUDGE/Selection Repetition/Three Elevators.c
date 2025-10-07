@@ -11,7 +11,7 @@ int main(){
         printf("%d\n", time1);
     }else{
         printf("-1\n");
-    }
+    };
 
     return 0;
 }
