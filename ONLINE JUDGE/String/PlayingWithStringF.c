@@ -2,38 +2,28 @@
 #include <string.h>
 
 int main() {
-    // Oke, pertama kita baca dulu ada berapa kasus uji
-    int jumlah_kasus;
-    scanf("%d", &jumlah_kasus);
+    int jumlah_kata;
+    scanf("%d", &jumlah_kata);
 
-    // Kalau sudah, ini buat perulangan untuk setiap kasusnya
-    for (int i = 1; i <= jumlah_kasus; i++) {
+    getchar(); 
+
+    for (int i = 1; i <= jumlah_kata; i++) {
         char kata[1001];
-        scanf("%s", kata);
 
-        int jumlah_perubahan;
-        scanf("%d", &jumlah_perubahan);
+        // Utk baca seluruh baris, termasuk spasi, sampai 1000 karakter
+        fgets(kata, sizeof(kata), stdin);
 
-        // Jadi ini untuk loop setiap perintah perubahan
-        for (int j = 0; j < jumlah_perubahan; j++) {
-            char huruf_lama, huruf_baru;
-            // Baca perintahnya, misal "a r"
-            // Spasi sebelum %c penting untuk menangkap karakter dengan benar
-            scanf(" %c %c", &huruf_lama, &huruf_baru);
+        kata[strcspn(kata, "\n")] = '\0';
+        
+        int panjang = strlen(kata);
 
-            int panjang_kata = strlen(kata);
-            // Loop untuk memeriksa setiap huruf di dalam kata
-            for (int k = 0; k < panjang_kata; k++) {
-                // Jika huruf di kata sama dengan huruf yang mau diubah
-                if (kata[k] == huruf_lama) {
-                    // Langsung ganti dengan huruf baru
-                    kata[k] = huruf_baru;
-                }
-            }
+        printf("Case #%d: ", i);
+
+        for (int j = panjang - 1; j >= 0; j--) {
+            printf("%c", kata[j]);
         }
-
-        // Terakhir, cetak hasilnya sesuai format
-        printf("Case #%d: %s\n", i, kata);
+        
+        printf("\n");
     }
 
     return 0;
