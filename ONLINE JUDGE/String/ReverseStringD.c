@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <string.h>
+
 
 int main() {
     int jumlah_kata;
@@ -7,14 +7,18 @@ int main() {
 
     for (int i = 1; i <= jumlah_kata; i++) {
         char kata[1001];
-        // Karena dijamin tidak ada spasi, cukup pakai scanf("%s")
         scanf("%s", kata);
         
-        int panjang = strlen(kata);
+        // --- PERUBAHAN DI SINI ---
+        // Menghitung panjang string secara manual
+        int panjang = 0;
+        while (kata[panjang] != '\0') {
+            panjang++;
+        }
 
         printf("Case #%d: ", i);
 
-        // Logika membalik stringnya sudah benar!
+        // Logika membaliknya tetap sama dan sudah benar
         for (int j = panjang - 1; j >= 0; j--) {
             printf("%c", kata[j]);
         }
