@@ -2,41 +2,37 @@
 #include <string.h>
 
 int main() {
-    // Siapin variabel buat nampung berapa banyak baris kata yang mau diinput
-    int jumlah_kata;
-    
-    // Minta user masukin jumlah barisnya
-    scanf("%d", &jumlah_kata);
+    int T; // Jumlah test case
+    scanf("%d", &T);
 
-    // Ini penting buat 'nangkep' karakter enter setelah input angka, biar nggak ngaco di `fgets` nanti
-    getchar(); 
-
-    // Ulangin prosesnya sebanyak jumlah kata yang tadi diinput
-    for (int i = 1; i <= jumlah_kata; i++) {
-        // Bikin tempat buat nampung katanya, ukurannya 1001 buat jaga-jaga
+    for (int i = 1; i <= T; i++) {
         char kata[1001];
+        scanf("%s", kata); // Baca string awal
 
-        // Baca satu baris penuh dari input user, termasuk spasi
-        fgets(kata, sizeof(kata), stdin);
+        int M; // Jumlah perintah penggantian
+        scanf("%d", &M);
 
-        // `fgets` itu suka bawa karakter 'enter' di akhir. Baris ini buat ngilangin 'enter' itu.
-        kata[strcspn(kata, "\n")] = '\0';
-        
-        // Hitung panjang kata yang udah bersih dari 'enter'
-        int panjang = strlen(kata);
+        // Lakukan penggantian sebanyak M kali
+        for (int j = 0; j < M; j++) {
+            char huruf_lama, huruf_baru;
+            // Baca dua huruf, contoh: "a b"
+            // Spasi sebelum %c penting untuk 'memakan' sisa enter dari scanf sebelumnya
+            scanf(" %c %c", &huruf_lama, &huruf_baru);
 
-        // Cetak awalan buat outputnya, contoh: "Case #1: "
-        printf("Case #%d: ", i);
-
-        // Sekarang kita putar balik katanya, mulai dari huruf paling belakang
-        for (int j = panjang - 1; j >= 0; j--) {
-            // Cetak hurufnya satu per satu dari belakang
-            printf("%c", kata[j]);
+            int panjang = strlen(kata);
+            // Cek setiap karakter di dalam kata
+            for (int k = 0; k < panjang; k++) {
+                // Jika ketemu huruf yang mau diganti
+                if (kata[k] == huruf_lama) {
+                    // Langsung ganti dengan huruf baru
+                    kata[k] = huruf_baru;
+                }
+            }
         }
-        
-        // Kasih baris baru biar rapi setelah selesai satu kata
-        printf("\n");
+
+        // Cetak hasil akhir setelah semua perubahan
+        printf("Case #%d: %s\n", i, kata);
     }
 
-    return 0; // Tandanya program selesai dengan baik
+    return 0;
 }
