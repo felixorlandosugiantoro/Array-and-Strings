@@ -1,0 +1,97 @@
+#include <stdio.h>
+
+float inputNilai(float *a){
+      int banyakNilai;
+
+      printf("\nBanyak Nilai: ");
+      scanf("%d", &banyakNilai);
+
+      for(int i = 0; i <banyakNilai; i++){
+        printf("Nilai %d: ", i+1);
+        scanf("%f", &a[i]);
+      }
+      printf("\n");
+}
+
+float rata2(float *a){
+    int count = 0;
+    float total = 0;
+
+    for (int i = 0; i < 100; i++) {
+    if (a[i] != 0) {
+        count++;
+    } else {
+        break;
+    }
+}
+
+    for(int i = 0; i < count; i++){
+        total = total+a[i];
+    }
+
+    printf("\nRata-rata: %.2f\n\n", total/count);
+    return total/count;
+}
+
+char grade(float a){
+
+    if(a > 10 || a < 0) printf("\nGrade Invalid\n\n");
+    else if(a > 8) printf("\nGrade: A\n\n");
+    else if(a > 7) printf("\nGrade: B\n\n");
+    else if(a > 6) printf("\nGrade: C\n\n");
+    else if(a > 5) printf("\nGrade: D\n\n");
+    else if(a > 4) printf("\nGrade: E\n\n");
+    else printf("\n Grade: F\n\n");
+}
+
+int main(){
+    int input;
+    float nilai[100] = {-1};
+    float mn = -1;
+
+    do{
+        printf("1. Masukkan Nilai\n");
+        printf("2. Rata-rata\n");
+        printf("3. Grade\n");
+        printf("4. Exit\n");
+        printf("Input: ");
+        scanf("%d", &input);
+
+        switch(input){
+            case 1: if(nilai[0] != -1){
+                        int count = 0;
+                        for (int i = 0; i < 100; i++) {
+                            if (nilai[i] != 0) {
+                                count++;
+                            } else { 
+                                break;
+                            }
+                        }
+
+                        for (int i = 0; i<count;i++){
+                            nilai [i] = 0;
+                        }
+                    }
+                    inputNilai(nilai); break;
+            case 2: if(nilai[0] == -1){
+                        printf("\nNilai Belum di Input");
+                        break;
+                    }
+
+                    mn = rata2(nilai); break;
+            case 3: if(nilai[0] == -1){
+                        printf("\nNilai Belum di Input\n");
+                        break;
+                    }
+                    else if(mn == -1){
+                        printf("\nNilai Belum di Rata-ratakan");
+                        break;
+                    }
+                    grade(mn); break;
+            case 4: input = 0; break;
+            default: printf("\nINVALID\n\n");
+        }
+    }while(input);
+
+    return 0;
+}
