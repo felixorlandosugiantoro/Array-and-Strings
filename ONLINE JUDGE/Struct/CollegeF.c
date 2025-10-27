@@ -2,16 +2,16 @@
 #include <string.h>
 
 struct mhs {
-    char Name[30];
-    char NIM[30];
-    char Age[30];
-    char PostalCode[30];
+    char Name[101];
+    char NIM[101];
+    char Age[10];
+    char PostalCode[7];
     char PlaceOfBirth[101];
     char DateOfBirth[101];
     char HighSchool[101];
-    char NumberofSiblings[30];
-    char Height[1000];
-    char BankAccountNumber[9];
+    char NumberofSiblings[101];
+    char Height[1001];
+    char BankAccountNumber[10];
     
 };
 
@@ -22,9 +22,10 @@ int main() {
     
     scanf("%d", &N); getchar();
     
-    struct mhs lia[10000];
+    struct mhs lia[100];
     
     for (i = 0; i < N; i++) {
+
 
     scanf("%[^\n]s", lia[i].Name); getchar();
     scanf("%s", lia[i].NIM); getchar();
