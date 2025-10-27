@@ -29,13 +29,13 @@ int main() {
     scanf("%[^\n]s", lia[i].Name); getchar();
     scanf("%s", lia[i].NIM); getchar();
     scanf("%s", lia[i].Age); getchar();
-    scanf("%s", lia[i].PostalCode);getchar();
-    scanf("%s", lia[i].PlaceOfBirth);getchar();
-    scanf("%s", lia[i].DateOfBirth);getchar();
-    scanf("%[^\n]s", lia[i].HighSchool);getchar();
-    scanf("%s", lia[i].NumberofSiblings);getchar();
-    scanf("%s", lia[i].Height);getchar();
-    scanf("%s", lia[i].BankAccountNumber);getchar();
+    scanf("%s", lia[i].PostalCode); getchar();
+    scanf("%s", lia[i].PlaceOfBirth); getchar();
+    scanf("%s", lia[i].DateOfBirth); getchar();
+    scanf("%[^\n]s", lia[i].HighSchool); getchar();
+    scanf("%s", lia[i].NumberofSiblings); getchar();
+    scanf("%s", lia[i].Height); getchar();
+    scanf("%s", lia[i].BankAccountNumber); getchar();
     
     }
     
@@ -50,7 +50,7 @@ int main() {
     printf("Tempat Lahir: %s\n", lia[i].PlaceOfBirth);
     printf("Tanggal Lahir: %s\n", lia[i].DateOfBirth);
     printf("Almamater SMA: %s\n", lia[i].HighSchool);
-    printf("Jumlah Saudara Kandung:7 %s\n", lia[i].NumberofSiblings);
+    printf("Jumlah Saudara Kandung: %s\n", lia[i].NumberofSiblings);
     printf("Tinggi Badan: %s\n", lia[i].Height);
     printf("NOMOR REKENING: %s\n", lia[i].BankAccountNumber);
     
